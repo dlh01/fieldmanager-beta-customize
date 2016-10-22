@@ -18,14 +18,14 @@ The official Pull Request for the Customize context, plus tests, is [on GitHub](
 
 1. Install and activate [Fieldmanager](https://github.com/alleyinteractive/wordpress-fieldmanager).
 2. Install and activate this plugin.
-3. Use the `fm_customize` context action to instantiate your fields. For example:
+3. Use the `fm_beta_customize` context action to instantiate your fields. For example:
 
-		add_action( 'fm_customize', function () {
+		add_action( 'fm_beta_customize', function () {
 			$fm = new Fieldmanager_TextField( 'My Field', [ 'name' => 'foo' ] );
 			fm_beta_customize_add_to_customizer( 'My Section', $fm );
 		} );
 
-For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo.php`. To see the demos in action in the Customizer, place `add_action( 'fm_customize', 'fm_beta_customize_demo' )` in your plugin or theme.
+For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo.php`. To see the demos in action in the Customizer, place `add_action( 'fm_beta_customize', 'fm_beta_customize_demo' )` in your plugin or theme.
 
 == Screenshots ==
 
@@ -34,6 +34,9 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 3. Detail from the demos bundled with this plugin.
 
 == Changelog ==
+
+= 0.1.1 =
+* Rename the Customize context action to 'fm_beta_customize' for improved future compatibility with Fieldmanager.
 
 = 0.1.0 =
 * Initial release.
