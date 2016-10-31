@@ -37,7 +37,7 @@ add_filter( 'fm_calculated_context', function ( $calculated_context ) {
 		$script = substr( sanitize_text_field( wp_unslash( $_SERVER['PHP_SELF'] ) ), strrpos( sanitize_text_field( wp_unslash( $_SERVER['PHP_SELF'] ) ), '/' ) + 1 );
 
 		if ( ( 'customize.php' === $script ) || is_customize_preview() ) {
-			$calculated_context = array( 'customize', null );
+			$calculated_context = array( 'beta_customize', null );
 		}
 	}
 
@@ -50,7 +50,7 @@ add_filter( 'fm_calculated_context', function ( $calculated_context ) {
  * We aren't registering an autoloader because if Fieldmanager core's autoloader
  * is registered first, and it doesn't find a file, it throws an exception.
  */
-add_action( 'fm_customize', function () {
+add_action( 'fm_beta_customize', function () {
 	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/context/class-fieldmanager-beta-context-customize.php' );
 	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/customize/class-fieldmanager-beta-customize-control.php' );
 	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/customize/class-fieldmanager-beta-customize-setting.php' );

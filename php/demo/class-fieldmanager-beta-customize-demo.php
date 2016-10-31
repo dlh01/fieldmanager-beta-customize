@@ -33,7 +33,7 @@ class Fieldmanager_Beta_Customize_Demo {
 	 * Set up.
 	 */
 	public function setup() {
-		add_action( 'fm_customize', array( $this, 'customizer_init' ), 1000 );
+		add_action( 'fm_beta_customize', array( $this, 'customizer_init' ), 1000 );
 	}
 
 	/**
