@@ -64,9 +64,20 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 			);
 
 			fm_add_script(
+				'fm_beta_customize_overrides',
+				'js/beta-overrides.js',
+				array( 'jquery', 'underscore', 'editor', 'quicktags', 'fieldmanager_script', 'customize-controls', 'fm-serializejson' ),
+				FM_BETA_CUSTOMIZE_VERSION,
+				true,
+				'',
+				array(),
+				FM_BETA_CUSTOMIZE_URL
+			);
+
+			fm_add_script(
 				'fm-customize',
 				'js/fieldmanager-customize.js',
-				array( 'jquery', 'underscore', 'editor', 'quicktags', 'fieldmanager_script', 'customize-controls', 'fm-serializejson' ),
+				array( 'fm_beta_customize_overrides' ),
 				FM_BETA_CUSTOMIZE_VERSION,
 				true,
 				'',

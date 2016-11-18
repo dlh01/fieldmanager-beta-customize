@@ -67,9 +67,7 @@ add_filter( 'fm_enqueue_scripts', function ( $scripts ) {
 	return array_map(
 		function ( $script ) {
 			switch ( $script['handle'] ) {
-				case 'fm_autocomplete_js' :
 				case 'fm_colorpicker' :
-				case 'fm_datepicker' :
 				case 'fieldmanager_script' :
 				case 'fm_richtext' :
 					$script['ver']  = FM_BETA_CUSTOMIZE_VERSION;
