@@ -47,6 +47,14 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		 * Enqueue control-related scripts and styles.
 		 */
 		public function enqueue() {
+			Fieldmanager_Util_Assets::instance()->add_style( array(
+				'deps'       => array( 'fieldmanager_style' ),
+				'handle'     => 'fm_beta_customize',
+				'path'       => 'css/fieldmanager-customize.css',
+				'plugin_dir' => FM_BETA_CUSTOMIZE_URL,
+				'ver'        => FM_BETA_CUSTOMIZE_VERSION,
+			) );
+
 			wp_register_script(
 				'fm-serializejson',
 				FM_BETA_CUSTOMIZE_URL . 'js/jquery-serializejson/jquery.serializejson.min.js',

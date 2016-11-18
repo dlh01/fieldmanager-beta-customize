@@ -84,27 +84,6 @@ add_filter( 'fm_enqueue_scripts', function ( $scripts ) {
 } );
 
 /**
- * Override the path to some Fieldmanager styles to use updated versions from this plugin.
- *
- * @param array Arrays of stylesheet arguments. @see Fieldmanager_Util_Assets::add_style().
- */
-add_filter( 'fm_enqueue_styles', function ( $styles ) {
-	return array_map(
-		function ( $style ) {
-			switch ( $style['handle'] ) {
-				case 'fieldmanager_style' :
-					$style['ver']  = FM_BETA_CUSTOMIZE_VERSION;
-					$style['path'] = str_replace( fieldmanager_get_baseurl(), FM_BETA_CUSTOMIZE_URL, $style['path'] );
-				break;
-			}
-
-			return $style;
-		},
-		$styles
-	);
-} );
-
-/**
  * Enqueue assets managed by Fieldmanager_Util_Assets in the Customizer.
  */
 add_action( 'plugins_loaded', function () {
