@@ -14,7 +14,7 @@
 	width: 30px;
 }
 
-.fm-datepicker-time-wrapper select {
+.customize-control .fm-datepicker-time-wrapper select {
 	/* Override Customizer defaults; datepickers have multiple inputs on one line. */
 	min-width: 0;
 }
