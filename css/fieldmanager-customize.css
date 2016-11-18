@@ -17,6 +17,7 @@
 .customize-control .fm-datepicker-time-wrapper select {
 	/* Override Customizer defaults; datepickers have multiple inputs on one line. */
 	min-width: 0;
+	width: auto;
 }
 
 .wp-customizer .fmjs-removable .fmjs-drag-icon {
