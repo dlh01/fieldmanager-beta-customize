@@ -1,7 +1,7 @@
 # Fieldmanager Beta: Customize #
 **Contributors:** [dlh](https://profiles.wordpress.org/dlh), [alleyinteractive](https://profiles.wordpress.org/alleyinteractive)  
 **Requires at least:** 4.4  
-**Tested up to:** 4.6  
+**Tested up to:** 4.7  
 **Stable tag:** 0.1.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
