@@ -7,7 +7,7 @@
  * Author URI:      https://www.alleyinteractive.com
  * Text Domain:     fieldmanager-beta-customizer
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         0.1.1
  *
  * @package         Fieldmanager_Beta_Customize
  */
@@ -25,7 +25,7 @@ define( 'FM_BETA_CUSTOMIZE_URL', plugin_dir_url( __FILE__ ) );
 /**
  * Plugin version.
  */
-define( 'FM_BETA_CUSTOMIZE_VERSION', '0.1.0' );
+define( 'FM_BETA_CUSTOMIZE_VERSION', '0.1.1' );
 
 /**
  * Calculate a Fieldmanager context for the Customizer.
@@ -67,9 +67,7 @@ add_filter( 'fm_enqueue_scripts', function ( $scripts ) {
 	return array_map(
 		function ( $script ) {
 			switch ( $script['handle'] ) {
-				case 'fm_autocomplete_js' :
 				case 'fm_colorpicker' :
-				case 'fm_datepicker' :
 				case 'fieldmanager_script' :
 				case 'fm_richtext' :
 					$script['ver']  = FM_BETA_CUSTOMIZE_VERSION;
@@ -80,27 +78,6 @@ add_filter( 'fm_enqueue_scripts', function ( $scripts ) {
 			return $script;
 		},
 		$scripts
-	);
-} );
-
-/**
- * Override the path to some Fieldmanager styles to use updated versions from this plugin.
- *
- * @param array Arrays of stylesheet arguments. @see Fieldmanager_Util_Assets::add_style().
- */
-add_filter( 'fm_enqueue_styles', function ( $styles ) {
-	return array_map(
-		function ( $style ) {
-			switch ( $style['handle'] ) {
-				case 'fieldmanager_style' :
-					$style['ver']  = FM_BETA_CUSTOMIZE_VERSION;
-					$style['path'] = str_replace( fieldmanager_get_baseurl(), FM_BETA_CUSTOMIZE_URL, $style['path'] );
-				break;
-			}
-
-			return $style;
-		},
-		$styles
 	);
 } );
 
