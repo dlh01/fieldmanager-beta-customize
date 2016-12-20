@@ -35,6 +35,9 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Changelog ==
 
+= Unreleased =
+* Add a demo of a field with selective-refresh support.
+
 = 0.1.1 =
 * Rename the Customize context action to 'fm_beta_customize' for improved future compatibility with Fieldmanager.
 
