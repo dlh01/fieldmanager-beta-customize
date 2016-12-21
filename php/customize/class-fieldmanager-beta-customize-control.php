@@ -22,7 +22,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		 *
 		 * @var string
 		 */
-		public $type = 'fieldmanager';
+		public $type = 'fieldmanager-beta';
 
 		/**
 		 * Constructor.

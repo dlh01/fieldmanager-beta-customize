@@ -57,7 +57,7 @@
 			var serialized;
 			var value;
 
-			if ( 'fieldmanager' !== control.params.type ) {
+			if ( 'fieldmanager-beta' !== control.params.type ) {
 				return;
 			}
 
