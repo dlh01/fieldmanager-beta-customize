@@ -120,3 +120,4 @@ function fm_beta_customize_add_to_customizer( $args = array(), $fm ) {
 function fm_beta_customize_demo() {
 	Fieldmanager_Beta_Customize_Demo::instance();
 }
+add_action( 'fm_beta_customize', 'fm_beta_customize_demo' );

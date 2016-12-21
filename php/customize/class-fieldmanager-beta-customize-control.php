@@ -49,14 +49,14 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		public function enqueue() {
 			Fieldmanager_Util_Assets::instance()->add_style( array(
 				'deps'       => array( 'fieldmanager_style' ),
-				'handle'     => 'fm_beta_customize',
-				'path'       => 'css/fieldmanager-customize.css',
+				'handle'     => 'fm-beta-customize',
+				'path'       => 'css/fieldmanager-beta-customize.css',
 				'plugin_dir' => FM_BETA_CUSTOMIZE_URL,
 				'ver'        => FM_BETA_CUSTOMIZE_VERSION,
 			) );
 
 			wp_register_script(
-				'fm-serializejson',
+				'fm-beta-customize-serializejson',
 				FM_BETA_CUSTOMIZE_URL . 'js/jquery-serializejson/jquery.serializejson.min.js',
 				array(),
 				'2.0.0',
@@ -64,9 +64,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 			);
 
 			fm_add_script(
-				'fm_beta_customize_overrides',
-				'js/beta-overrides.js',
-				array( 'jquery', 'underscore', 'editor', 'quicktags', 'fieldmanager_script', 'customize-controls', 'fm-serializejson' ),
+				'fm-beta-customize-overrides',
+				'js/fieldmanager-beta-customize-overrides.js',
+				array( 'jquery', 'underscore', 'editor', 'quicktags', 'fieldmanager_script', 'customize-controls', 'fm-beta-customize-serializejson' ),
 				FM_BETA_CUSTOMIZE_VERSION,
 				true,
 				'',
@@ -75,9 +75,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 			);
 
 			fm_add_script(
-				'fm-customize',
-				'js/fieldmanager-customize.js',
-				array( 'fm_beta_customize_overrides' ),
+				'fm-beta-customize',
+				'js/fieldmanager-beta-customize.js',
+				array( 'fm-beta-customize-overrides' ),
 				FM_BETA_CUSTOMIZE_VERSION,
 				true,
 				'',

@@ -12,5 +12,5 @@
 	);
 
 	// Enable Datepickers.
-	$( document ).on( 'fm_customize_control_section_expanded', fm.datepicker.add_datepicker );
+	$( document ).on( 'fm_beta_customize_control_section_expanded', fm.datepicker.add_datepicker );
 })( jQuery );
