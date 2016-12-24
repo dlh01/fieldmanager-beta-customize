@@ -199,14 +199,6 @@
 		 */
 		$( document ).trigger( 'fm_beta_customize_control_section_expanded' );
 
-		if ( fm.richtextarea ) {
-			fm.richtextarea.add_rte_to_visible_textareas();
-		}
-
-		if ( fm.colorpicker ) {
-			fm.colorpicker.init();
-		}
-
 		/*
 		 * Reserialize any Fieldmanager controls in this section with null
 		 * values. We assume null indicates nothing has been saved to the
@@ -235,8 +227,6 @@
 		$document.on( 'click', '.fmjs-remove', onFmjsRemoveClick );
 		$document.on( 'fm_sortable_drop', onFmSortableDrop );
 		$document.on( 'fieldmanager_media_preview', onFieldmanagerMediaPreview );
-		$document.on( 'fm_richtext_init', onFmRichtextInit );
-		$document.on( 'fm_colorpicker_update', onFmColorpickerUpdate );
 	};
 
 	/**
