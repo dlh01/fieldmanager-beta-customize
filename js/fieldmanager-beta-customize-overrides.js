@@ -56,7 +56,8 @@
 				if ( $fm_richtext.hasClass( 'fm-richtext' ) && ! $fm_richtext.data( 'fm-beta-customize' ) ) {
 					$fm_richtext.data( 'fm-beta-customize', true );
 
-					ed.on( 'keyup AddUndo', function () {
+					// SetContent handles adding images from the media modal and pasting.
+					ed.on( 'keyup AddUndo SetContent', function () {
 						ed.save();
 						fm.beta.customize.setControlsContainingElement( document.getElementById( ed.id ) );
 					});
