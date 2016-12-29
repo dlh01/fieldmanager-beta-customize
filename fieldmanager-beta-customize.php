@@ -96,6 +96,41 @@ add_action( 'plugins_loaded', function () {
 } );
 
 /**
+ * Print Customizer control scripts for editors in the footer.
+ *
+ * This action must fire after settings are exported in WP_Customize_Manager::customize_pane_settings().
+ *
+ * @since 0.3.0
+ */
+add_action( 'customize_controls_print_footer_scripts', function () {
+	if ( wp_script_is( 'fm_richtext', 'enqueued' ) && class_exists( '_WP_Editors' ) ) {
+		if ( false === has_action( 'customize_controls_print_footer_scripts', array( '_WP_Editors', 'editor_js' ) ) ) {
+			// Print the necessary JS for an RTE, unless we can't or suspect it's already there.
+			_WP_Editors::editor_js();
+			_WP_Editors::enqueue_scripts();
+		}
+	}
+}, 1001 );
+
+/**
+ * Use a "teeny" editor by default in the Customizer to conserve space.
+ *
+ * @since 0.3.0
+ *
+ * @param array  $settings  Array of editor arguments.
+ * @param string $editor_id ID for the current editor instance.
+ */
+add_filter( 'wp_editor_settings', function ( $settings, $editor_id ) {
+	if ( ( substr( $editor_id, 0, 3 ) === 'fm-' ) && is_customize_preview() ) {
+		if ( ! isset( $settings['teeny'] ) ) {
+			$settings['teeny'] = true;
+		}
+	}
+
+	return $settings;
+}, 10, 2 );
+
+/**
  * Add a field to the Customizer.
  *
  * @param string|array       $args @see Fieldmanager_Beta_Context_Customize.
