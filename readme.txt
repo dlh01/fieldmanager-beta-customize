@@ -2,7 +2,7 @@
 Contributors: dlh, alleyinteractive
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 0.1.1
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,12 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 = Unreleased =
 * Support `Fieldmanager_RichTextArea` natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
+
+= 0.2.1 =
+* Fix JavaScript errors.
+
+= 0.2.0 =
+* Move CSS, and autocomplete and datepicker scripts, into separate files, rather than overriding those assets in Fieldmanager core.
 
 = 0.1.1 =
 * Rename the Customize context action to 'fm_beta_customize' for improved future compatibility with Fieldmanager.
