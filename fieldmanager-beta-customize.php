@@ -7,7 +7,7 @@
  * Author URI:      https://www.alleyinteractive.com
  * Text Domain:     fieldmanager-beta-customizer
  * Domain Path:     /languages
- * Version:         0.1.1
+ * Version:         0.2.1
  *
  * @package         Fieldmanager_Beta_Customize
  */
@@ -25,7 +25,7 @@ define( 'FM_BETA_CUSTOMIZE_URL', plugin_dir_url( __FILE__ ) );
 /**
  * Plugin version.
  */
-define( 'FM_BETA_CUSTOMIZE_VERSION', '0.1.1' );
+define( 'FM_BETA_CUSTOMIZE_VERSION', '0.2.1' );
 
 /**
  * Calculate a Fieldmanager context for the Customizer.
