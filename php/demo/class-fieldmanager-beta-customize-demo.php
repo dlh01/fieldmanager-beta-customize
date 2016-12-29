@@ -92,7 +92,7 @@ class Fieldmanager_Beta_Customize_Demo {
 				'checkbox'     => new Fieldmanager_Checkbox( 'Checkbox' ),
 				'radios'       => new Fieldmanager_Radios( 'Radio Buttons', array( 'options' => array( 'One', 'Two', 'Three' ) ) ),
 				'select'       => new Fieldmanager_Select( 'Select Dropdown', array( 'options' => array( 'One', 'Two', 'Three' ) ) ),
-				'richtextarea' => new Fieldmanager_Beta_Customize_RichTextArea( 'Rich Text Area' ),
+				'richtextarea' => new Fieldmanager_RichTextArea( 'Rich Text Area' ),
 			)
 		) );
 		fm_beta_customize_add_to_customizer( array(

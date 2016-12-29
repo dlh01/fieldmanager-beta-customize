@@ -2,7 +2,7 @@
 Contributors: dlh, alleyinteractive
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 0.1.1
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -10,9 +10,9 @@ A Fieldmanager Beta plugin for the Customize Context.
 
 == Description ==
 
-This is the proposed Customize context for Fieldmanager. You can install the plugin alongside a stable Fieldmanager release to help test and refine the context.
+This is a proposed Customize context for Fieldmanager. You can install the plugin alongside a stable Fieldmanager release to help test and refine the context.
 
-The official Pull Request for the Customize context, plus tests, is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
+The official Pull Request for this context, plus tests, is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
 
 == Installation ==
 
@@ -36,15 +36,18 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 == Changelog ==
 
 = Unreleased =
+* Support `Fieldmanager_RichTextArea` natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
 * Add a demo of a field with selective-refresh support.
+* Move remaining scripts that overrode Fieldmanager core assets into separate files.
+
+= 0.2.1 =
+* Fix JavaScript errors.
+
+= 0.2.0 =
+* Move CSS, and autocomplete and datepicker scripts, into separate files, rather than overriding those assets in Fieldmanager core.
 
 = 0.1.1 =
 * Rename the Customize context action to 'fm_beta_customize' for improved future compatibility with Fieldmanager.
 
 = 0.1.0 =
 * Initial release.
-
-== Fieldmanager-specific quirks ==
-
-* RichTextAreas: These are supported via the `Fieldmanager_Beta_Customize_RichTextArea` class included with this plugin. Use a `Fieldmanager_Beta_Customize_RichTextArea` in place of `Fieldmanager_RichTextArea` when you want to use TinyMCE in the Customizer.
-* Scripts: Some Fieldmanager JavaScript files require changes for the Customize context. This plugin includes the updated versions of those files and filters Fieldmanager to return them.
