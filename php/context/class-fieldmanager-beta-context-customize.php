@@ -90,7 +90,7 @@ class Fieldmanager_Beta_Context_Customize extends Fieldmanager_Context {
 			$message = ( $e instanceof FM_Validation_Exception ) ? $e->getMessage() : __( 'Invalid value.', 'fieldmanager-beta-customize' );
 
 			// @see https://core.trac.wordpress.org/ticket/37890 for the use of array( $value ).
-			$validity->add( 'fieldmanager', $message, array( $value ) );
+			$validity->add( 'fieldmanager-beta', $message, array( $value ) );
 		}
 
 		// Resume normal wp_die() handling.
