@@ -35,6 +35,9 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Changelog ==
 
+= Unreleased =
+* Support `Fieldmanager_RichTextArea` natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
+
 = 0.1.1 =
 * Rename the Customize context action to 'fm_beta_customize' for improved future compatibility with Fieldmanager.
 
@@ -43,5 +46,4 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Fieldmanager-specific quirks ==
 
-* RichTextAreas: These are supported via the `Fieldmanager_Beta_Customize_RichTextArea` class included with this plugin. Use a `Fieldmanager_Beta_Customize_RichTextArea` in place of `Fieldmanager_RichTextArea` when you want to use TinyMCE in the Customizer.
 * Scripts: Some Fieldmanager JavaScript files require changes for the Customize context. This plugin includes the updated versions of those files and filters Fieldmanager to return them.
