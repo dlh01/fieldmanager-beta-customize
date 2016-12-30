@@ -30,7 +30,7 @@
 	max-width: 80%;
 }
 
-/* Fix invisible TinyMCE popups. Props Customize Posts. */
+/* Fix invisible TinyMCE popups. Props Customize Posts: https://github.com/xwp/wp-customize-posts. */
 
 .wp-customizer #wp-link-wrap {
 	z-index: 500105; /* originally 100105, but z-index of .wp-full-overlay is 500000 */
