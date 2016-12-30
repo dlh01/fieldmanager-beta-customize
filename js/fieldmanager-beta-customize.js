@@ -10,7 +10,9 @@
 (function( $, api, _, fm ) {
 	'use strict';
 
-	fm.customize = {
+	fm.beta = fm.beta || {};
+
+	fm.beta.customize = {
 		/**
 		 * jQuery selector targeting all elements to include in a Fieldmanager setting value.
 		 *
@@ -55,7 +57,7 @@
 			var serialized;
 			var value;
 
-			if ( 'fieldmanager' !== control.params.type ) {
+			if ( 'fieldmanager-beta' !== control.params.type ) {
 				return;
 			}
 
@@ -82,7 +84,7 @@
 	 * @param {Event} e Event object.
 	 */
 	var onFmElementChange = function( e ) {
-		fm.customize.setControlsContainingElement( e.target );
+		fm.beta.customize.setControlsContainingElement( e.target );
 	};
 
 	/**
@@ -106,7 +108,7 @@
 			return;
 		}
 
-		fm.customize.setControlsContainingElement( e.target );
+		fm.beta.customize.setControlsContainingElement( e.target );
 	};
 
 	/**
@@ -116,7 +118,7 @@
 	 * @param {Element} el The sorted element.
 	 */
 	var onFmSortableDrop = function ( e, el ) {
-		fm.customize.setControlsContainingElement( el );
+		fm.beta.customize.setControlsContainingElement( el );
 	};
 
 	/**
@@ -125,7 +127,7 @@
 	 * @param {Event} e Event object.
 	 */
 	var onFmAddedElement = function( e ) {
-		fm.customize.setControlsContainingElement( e.target );
+		fm.beta.customize.setControlsContainingElement( e.target );
 	};
 
 	/**
@@ -137,7 +139,7 @@
 	 * @param {Object} wp Global WordPress JS API.
 	 */
 	var onFieldmanagerMediaPreview = function( e, $wrapper, attachment, wp ) {
-		fm.customize.setControlsContainingElement( e.target );
+		fm.beta.customize.setControlsContainingElement( e.target );
 	};
 
 	/**
@@ -149,7 +151,7 @@
 	var onFmRichtextInit = function( e, ed ) {
 		ed.on( 'keyup AddUndo', function () {
 			ed.save();
-			fm.customize.setControlsContainingElement( document.getElementById( ed.id ) );
+			fm.beta.customize.setControlsContainingElement( document.getElementById( ed.id ) );
 		} );
 	};
 
@@ -160,7 +162,7 @@
 	 * @param {Element} el Colorpicker element.
 	 */
 	var onFmColorpickerUpdate = function( e, el ) {
-		fm.customize.setControlsContainingElement( el );
+		fm.beta.customize.setControlsContainingElement( el );
 	};
 
 	/**
@@ -170,7 +172,7 @@
 	 */
 	 var onFmMediaRemoveClick = function ( e ) {
 		// The control no longer contains the element, so set all of them.
-		fm.customize.setEachControl();
+		fm.beta.customize.setEachControl();
 	 };
 
 	 /**
@@ -180,7 +182,7 @@
 	  */
 	 var onFmjsRemoveClick = function ( e ) {
 		// The control no longer contains the element, so set all of them.
-		fm.customize.setEachControl();
+		fm.beta.customize.setEachControl();
 	 };
 
 	/**
@@ -195,15 +197,7 @@
 		 * We bind to sections whether or not they have FM controls in case a
 		 * control is added dynamically.
 		 */
-		$( document ).trigger( 'fm_customize_control_section_expanded' );
-
-		if ( fm.richtextarea ) {
-			fm.richtextarea.add_rte_to_visible_textareas();
-		}
-
-		if ( fm.colorpicker ) {
-			fm.colorpicker.init();
-		}
+		$( document ).trigger( 'fm_beta_customize_control_section_expanded' );
 
 		/*
 		 * Reserialize any Fieldmanager controls in this section with null
@@ -216,7 +210,7 @@
 				control.settings.default &&
 				null === control.settings.default.get()
 			) {
-				fm.customize.setControl( control );
+				fm.beta.customize.setControl( control );
 			}
 		});
 	};
@@ -233,8 +227,6 @@
 		$document.on( 'click', '.fmjs-remove', onFmjsRemoveClick );
 		$document.on( 'fm_sortable_drop', onFmSortableDrop );
 		$document.on( 'fieldmanager_media_preview', onFieldmanagerMediaPreview );
-		$document.on( 'fm_richtext_init', onFmRichtextInit );
-		$document.on( 'fm_colorpicker_update', onFmColorpickerUpdate );
 	};
 
 	/**

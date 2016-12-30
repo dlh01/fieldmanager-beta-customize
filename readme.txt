@@ -10,9 +10,9 @@ A Fieldmanager Beta plugin for the Customize Context.
 
 == Description ==
 
-This is the proposed Customize context for Fieldmanager. You can install the plugin alongside a stable Fieldmanager release to help test and refine the context.
+This is a proposed Customize context for Fieldmanager. You can install the plugin alongside a stable Fieldmanager release to help test and refine the context.
 
-The official Pull Request for the Customize context, plus tests, is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
+The official Pull Request for this context, plus tests, is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
 
 == Installation ==
 
@@ -35,6 +35,10 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Changelog ==
 
+= Unreleased =
+* Support `Fieldmanager_RichTextArea` natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
+* Move remaining scripts that overrode Fieldmanager core assets into separate files.
+
 = 0.2.1 =
 * Fix JavaScript errors.
 
@@ -46,8 +50,3 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 = 0.1.0 =
 * Initial release.
-
-== Fieldmanager-specific quirks ==
-
-* RichTextAreas: These are supported via the `Fieldmanager_Beta_Customize_RichTextArea` class included with this plugin. Use a `Fieldmanager_Beta_Customize_RichTextArea` in place of `Fieldmanager_RichTextArea` when you want to use TinyMCE in the Customizer.
-* Scripts: Some Fieldmanager JavaScript files require changes for the Customize context. This plugin includes the updated versions of those files and filters Fieldmanager to return them.
