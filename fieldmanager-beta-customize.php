@@ -59,29 +59,6 @@ add_action( 'fm_beta_customize', function () {
 }, 0 );
 
 /**
- * Override the path to some Fieldmanager scripts to use updated versions from this plugin.
- *
- * @param array Arrays of script arguments. @see Fieldmanager_Util_Assets::add_script().
- */
-add_filter( 'fm_enqueue_scripts', function ( $scripts ) {
-	return array_map(
-		function ( $script ) {
-			switch ( $script['handle'] ) {
-				case 'fm_colorpicker' :
-				case 'fieldmanager_script' :
-				case 'fm_richtext' :
-					$script['ver']  = FM_BETA_CUSTOMIZE_VERSION;
-					$script['path'] = str_replace( fieldmanager_get_baseurl(), FM_BETA_CUSTOMIZE_URL, $script['path'] );
-				break;
-			}
-
-			return $script;
-		},
-		$scripts
-	);
-} );
-
-/**
  * Enqueue assets managed by Fieldmanager_Util_Assets in the Customizer.
  */
 add_action( 'plugins_loaded', function () {
