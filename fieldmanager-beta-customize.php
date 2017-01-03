@@ -3,7 +3,7 @@
  * Plugin Name:     Fieldmanager Beta: Customize
  * Plugin URI:      https://www.github.com/dlh01/fieldmanager-beta-customize-context
  * Description:     Add Fieldmanager fields to the Customizer.
- * Author:          David Herrera, Alley Interactive
+ * Author:          David Herrera, James Burke, Alley Interactive
  * Author URI:      https://www.alleyinteractive.com
  * Text Domain:     fieldmanager-beta-customizer
  * Domain Path:     /languages
