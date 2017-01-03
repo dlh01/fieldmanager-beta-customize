@@ -2,7 +2,7 @@
 Contributors: dlh, alleyinteractive
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 0.2.1
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Changelog ==
 
-= Unreleased =
+= 0.3.0 =
 * Support `Fieldmanager_RichTextArea` natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
 * Move remaining scripts that overrode Fieldmanager core assets into separate files.
 * Fix invisible TinyMCE popups.
