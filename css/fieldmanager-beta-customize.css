@@ -29,3 +29,24 @@
 	/* Nudge for the Customizer. */
 	max-width: 80%;
 }
+
+/* Fix invisible TinyMCE popups. Props Customize Posts: https://github.com/xwp/wp-customize-posts. */
+
+.wp-customizer #wp-link-wrap {
+	z-index: 500105; /* originally 100105, but z-index of .wp-full-overlay is 500000 */
+}
+
+.wp-customizer #wp_editbtns,
+.wp-customizer #wp_gallerybtns {
+	z-index: 500020; /* originally 100020, but z-index of .wp-full-overlay is 500000 */
+
+}
+.wp-customizer #TB_overlay,
+.wp-customizer #TB_window {
+	z-index: 500050;
+}
+
+.wp-customizer .mce-panel,
+.wp-customizer .mce-tooltip {
+	z-index: 500100 !important; /* originally 100100, but z-index of .wp-full-overlay is 500000 */
+}

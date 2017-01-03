@@ -3,11 +3,11 @@
  * Plugin Name:     Fieldmanager Beta: Customize
  * Plugin URI:      https://www.github.com/dlh01/fieldmanager-beta-customize-context
  * Description:     Add Fieldmanager fields to the Customizer.
- * Author:          David Herrera, Alley Interactive
+ * Author:          David Herrera, James Burke, Alley Interactive
  * Author URI:      https://www.alleyinteractive.com
  * Text Domain:     fieldmanager-beta-customizer
  * Domain Path:     /languages
- * Version:         0.2.1
+ * Version:         0.3.0
  *
  * @package         Fieldmanager_Beta_Customize
  */
@@ -25,7 +25,7 @@ define( 'FM_BETA_CUSTOMIZE_URL', plugin_dir_url( __FILE__ ) );
 /**
  * Plugin version.
  */
-define( 'FM_BETA_CUSTOMIZE_VERSION', '0.2.1' );
+define( 'FM_BETA_CUSTOMIZE_VERSION', '0.3.0' );
 
 /**
  * Calculate a Fieldmanager context for the Customizer.
@@ -59,29 +59,6 @@ add_action( 'fm_beta_customize', function () {
 }, 0 );
 
 /**
- * Override the path to some Fieldmanager scripts to use updated versions from this plugin.
- *
- * @param array Arrays of script arguments. @see Fieldmanager_Util_Assets::add_script().
- */
-add_filter( 'fm_enqueue_scripts', function ( $scripts ) {
-	return array_map(
-		function ( $script ) {
-			switch ( $script['handle'] ) {
-				case 'fm_colorpicker' :
-				case 'fieldmanager_script' :
-				case 'fm_richtext' :
-					$script['ver']  = FM_BETA_CUSTOMIZE_VERSION;
-					$script['path'] = str_replace( fieldmanager_get_baseurl(), FM_BETA_CUSTOMIZE_URL, $script['path'] );
-				break;
-			}
-
-			return $script;
-		},
-		$scripts
-	);
-} );
-
-/**
  * Enqueue assets managed by Fieldmanager_Util_Assets in the Customizer.
  */
 add_action( 'plugins_loaded', function () {
@@ -94,6 +71,41 @@ add_action( 'plugins_loaded', function () {
 		add_action( 'customize_controls_enqueue_scripts', array( Fieldmanager_Util_Assets::instance(), 'enqueue_assets' ), 20 );
 	}
 } );
+
+/**
+ * Print Customizer control scripts for editors in the footer.
+ *
+ * This action must fire after settings are exported in WP_Customize_Manager::customize_pane_settings().
+ *
+ * @since 0.3.0
+ */
+add_action( 'customize_controls_print_footer_scripts', function () {
+	if ( wp_script_is( 'fm_richtext', 'enqueued' ) && class_exists( '_WP_Editors' ) ) {
+		if ( false === has_action( 'customize_controls_print_footer_scripts', array( '_WP_Editors', 'editor_js' ) ) ) {
+			// Print the necessary JS for an RTE, unless we can't or suspect it's already there.
+			_WP_Editors::editor_js();
+			_WP_Editors::enqueue_scripts();
+		}
+	}
+}, 1001 );
+
+/**
+ * Use a "teeny" editor by default in the Customizer to conserve space.
+ *
+ * @since 0.3.0
+ *
+ * @param array  $settings  Array of editor arguments.
+ * @param string $editor_id ID for the current editor instance.
+ */
+add_filter( 'wp_editor_settings', function ( $settings, $editor_id ) {
+	if ( ( substr( $editor_id, 0, 3 ) === 'fm-' ) && is_customize_preview() ) {
+		if ( ! isset( $settings['teeny'] ) ) {
+			$settings['teeny'] = true;
+		}
+	}
+
+	return $settings;
+}, 10, 2 );
 
 /**
  * Add a field to the Customizer.

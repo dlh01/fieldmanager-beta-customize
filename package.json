@@ -4,6 +4,7 @@
   "main": "Gruntfile.js",
   "contributors": [
     "David Herrera",
+    "James Burke",
     "Alley Interactive"
   ],
   "devDependencies": {
