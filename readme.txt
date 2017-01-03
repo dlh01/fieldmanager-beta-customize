@@ -1,5 +1,5 @@
 === Fieldmanager Beta: Customize ===
-Contributors: dlh,jamesburke, alleyinteractive
+Contributors: dlh, jamesburke, alleyinteractive
 Requires at least: 4.4
 Tested up to: 4.7
 Stable tag: 0.3.0
