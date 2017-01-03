@@ -36,9 +36,10 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 == Changelog ==
 
 = 0.3.0 =
-* Support `Fieldmanager_RichTextArea` natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
-* Move remaining scripts that overrode Fieldmanager core assets into separate files.
-* Fix invisible TinyMCE popups.
+* Changed: `Fieldmanager_RichTextArea` is now supported natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
+* Changed: Move remaining scripts that overrode Fieldmanager core assets into separate files.
+* Fixed: Fix invisible TinyMCE popups.
+* Deprecated: `Fieldmanager_Beta_Customize_RichTextArea`, per above.
 
 = 0.2.1 =
 * Fix JavaScript errors.
