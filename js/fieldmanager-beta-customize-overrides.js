@@ -46,23 +46,9 @@
 			});
 		}
 
-		// Initialize RichTextAreas and respond to changes.
+		// Initialize RichTextAreas.
 		if ( fm.richtextarea ) {
 			fm.richtextarea.add_rte_to_visible_textareas();
-
-			tinymce.editors.forEach(function ( ed ) {
-				var $fm_richtext = $( document.getElementById( ed.id ) );
-
-				if ( $fm_richtext.hasClass( 'fm-richtext' ) && ! $fm_richtext.data( 'fm-beta-customize' ) ) {
-					$fm_richtext.data( 'fm-beta-customize', true );
-
-					// SetContent handles adding images from the media modal and pasting.
-					ed.on( 'keyup AddUndo SetContent', function () {
-						ed.save();
-						fm.beta.customize.setControlsContainingElement( document.getElementById( ed.id ) );
-					});
-				}
-			});
 		}
 
 		// Initialize sortables via existing event.
@@ -100,5 +86,17 @@
 				}
 			} );
 		})();
+	});
+
+	// Respond to RichTextArea changes.
+	$( document ).on( 'tinymce-editor-init', function ( event, editor ) {
+		var editor_element = document.getElementById( editor.id );
+
+		if ( editor_element && editor_element.classList.contains( 'fm-richtext' ) ) {
+			editor.on( 'keyup AddUndo SetContent', function () {
+				editor.save();
+				fm.beta.customize.setControlsContainingElement( editor_element );
+			});
+		}
 	});
 })( jQuery );
