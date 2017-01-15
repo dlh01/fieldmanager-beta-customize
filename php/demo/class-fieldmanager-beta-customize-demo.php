@@ -134,7 +134,13 @@ class Fieldmanager_Beta_Customize_Demo {
 		) );
 		fm_beta_customize_add_to_customizer( 'Fieldmanager Validated Fields', $fm );
 
-		$fm = new Fieldmanager_Group( array(
+		add_action( 'customize_register', function ( $manager ) {
+			$manager->add_section( 'fm_repeatable_fields', array(
+				'title' => 'Fieldmanager Repeatable Fields',
+			) );
+		} );
+
+		$fm = new Fieldmanager_Group( 'RichTextAreas', array(
 			'name' => 'repeatable_richtextarea',
 			'limit' => 0,
 			'one_label_per_item' => false,
@@ -142,7 +148,21 @@ class Fieldmanager_Beta_Customize_Demo {
 				'richtext' => new Fieldmanager_RichTextArea(),
 			),
 		) );
-		fm_beta_customize_add_to_customizer( 'Fieldmanager Repeatable Fields', $fm );
+		fm_beta_customize_add_to_customizer(
+			array( 'control_args' => array( 'section' => 'fm_repeatable_fields' ) ),
+			$fm
+		);
+
+		fm_beta_customize_add_to_customizer(
+			array(
+				'control_args' => array( 'section' => 'fm_repeatable_fields' ),
+			),
+			new Fieldmanager_Colorpicker( 'Colorpickers', array(
+				'name' => 'repeatable_colorpicker',
+				'limit' => 0,
+				'one_label_per_item' => false,
+			) )
+		);
 	}
 
 	/**
