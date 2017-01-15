@@ -140,17 +140,16 @@ class Fieldmanager_Beta_Customize_Demo {
 			) );
 		} );
 
-		$fm = new Fieldmanager_Group( 'RichTextAreas', array(
-			'name' => 'repeatable_richtextarea',
-			'limit' => 0,
-			'one_label_per_item' => false,
-			'children' => array(
-				'richtext' => new Fieldmanager_RichTextArea(),
-			),
-		) );
 		fm_beta_customize_add_to_customizer(
 			array( 'control_args' => array( 'section' => 'fm_repeatable_fields' ) ),
-			$fm
+			new Fieldmanager_Group( 'RichTextAreas', array(
+				'name' => 'repeatable_richtextarea',
+				'limit' => 0,
+				'one_label_per_item' => false,
+				'children' => array(
+					'richtext' => new Fieldmanager_RichTextArea(),
+				),
+			) )
 		);
 
 		fm_beta_customize_add_to_customizer(
