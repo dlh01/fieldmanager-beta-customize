@@ -153,9 +153,7 @@ class Fieldmanager_Beta_Customize_Demo {
 		);
 
 		fm_beta_customize_add_to_customizer(
-			array(
-				'control_args' => array( 'section' => 'fm_repeatable_fields' ),
-			),
+			array( 'control_args' => array( 'section' => 'fm_repeatable_fields' ) ),
 			new Fieldmanager_Colorpicker( 'Colorpickers', array(
 				'name' => 'repeatable_colorpicker',
 				'limit' => 0,
