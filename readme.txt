@@ -35,6 +35,9 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Changelog ==
 
+= Unreleased =
+* Fixed: Track the changes to instances of repeatable RichTextAreas and Colorpickers added after loading the Customizer.
+
 = 0.3.0 =
 * Changed: `Fieldmanager_RichTextArea` is now supported natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
 * Changed: Move remaining scripts that overrode Fieldmanager core assets into separate files.
