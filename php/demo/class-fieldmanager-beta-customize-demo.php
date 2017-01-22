@@ -133,6 +133,33 @@ class Fieldmanager_Beta_Customize_Demo {
 			'sanitize' => 'intval',
 		) );
 		fm_beta_customize_add_to_customizer( 'Fieldmanager Validated Fields', $fm );
+
+		add_action( 'customize_register', function ( $manager ) {
+			$manager->add_section( 'fm_repeatable_fields', array(
+				'title' => 'Fieldmanager Repeatable Fields',
+			) );
+		} );
+
+		fm_beta_customize_add_to_customizer(
+			array( 'control_args' => array( 'section' => 'fm_repeatable_fields' ) ),
+			new Fieldmanager_Group( 'RichTextAreas', array(
+				'name' => 'repeatable_richtextarea',
+				'limit' => 0,
+				'one_label_per_item' => false,
+				'children' => array(
+					'richtext' => new Fieldmanager_RichTextArea(),
+				),
+			) )
+		);
+
+		fm_beta_customize_add_to_customizer(
+			array( 'control_args' => array( 'section' => 'fm_repeatable_fields' ) ),
+			new Fieldmanager_Colorpicker( 'Colorpickers', array(
+				'name' => 'repeatable_colorpicker',
+				'limit' => 0,
+				'one_label_per_item' => false,
+			) )
+		);
 	}
 
 	/**
