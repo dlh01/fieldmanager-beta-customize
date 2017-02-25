@@ -73,7 +73,7 @@
 		var editorElement = document.getElementById( editor.id );
 
 		if ( editorElement && editorElement.classList.contains( 'fm-richtext' ) ) {
-			editor.on( 'keyup AddUndo SetContent', function () {
+			editor.on( 'input change keyup', function () {
 				editor.save();
 				fm.beta.customize.setControlsContainingElement( editorElement );
 			});
