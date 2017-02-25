@@ -73,15 +73,6 @@
 		var editorElement = document.getElementById( editor.id );
 
 		if ( editorElement && editorElement.classList.contains( 'fm-richtext' ) ) {
-			/*
-			 * Debouncing or throttling updates to fields creates an FM-specific
-			 * deviation to how users experience the Customizer adds maintenance
-			 * requirements for the plugin.
-			 *
-			 * Without debouncing or throttling, changes to settings using the
-			 * `postMessage` transport are faster. The Customizer's refresh
-			 * framework also debounces natively.
-			 */
 			editor.on( 'input change keyup', function () {
 				editor.save();
 				fm.beta.customize.setControlsContainingElement( editorElement );
