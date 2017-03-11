@@ -1,10 +1,10 @@
 module.exports = function( grunt ) {
-
 	'use strict';
+
 	var banner = '/**\n * <%= pkg.homepage %>\n * Copyright (c) <%= grunt.template.today("yyyy") %>\n * This file is generated automatically. Do not edit.\n */\n';
+
 	// Project configuration
 	grunt.initConfig( {
-
 		pkg: grunt.file.readJSON( 'package.json' ),
 
 		addtextdomain: {
@@ -18,15 +18,12 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		wp_readme_to_markdown: {
-			options: {
-				screenshot_url: './assets/{screenshot}.png',
-			},
-			your_target: {
-				files: {
-					'README.md': 'readme.txt'
+		connect: {
+			server: {
+				options: {
+					base: '.'
 				}
-			},
+			}
 		},
 
 		makepot: {
@@ -44,14 +41,53 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+
+		qunit: {
+			latest: {
+				options: {
+					urls: ['http://localhost:8000/tests/js/index.html']
+				}
+			},
+			recent: {
+				options: {
+					urls: [
+						'http://localhost:8000/tests/js/index.html',
+						'http://localhost:8000/tests/js/index.html?wp=4.7',
+						'http://localhost:8000/tests/js/index.html?wp=4.6',
+					]
+				}
+			},
+			specific: {
+				options: {
+					urls: [ 'http://localhost:8000/tests/js/index.html?wp=' + grunt.option( 'wp' ) ]
+				}
+			}
+		},
+
+		wp_readme_to_markdown: {
+			options: {
+				screenshot_url: './assets/{screenshot}.png',
+			},
+			your_target: {
+				files: {
+					'README.md': 'readme.txt'
+				}
+			},
+		},
 	} );
 
+	grunt.loadNpmTasks( 'grunt-contrib-connect' );
+	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
+
+	if ( grunt.cli.tasks.join( '' ).toLowerCase().indexOf( 'qunit' ) !== -1 ) {
+		grunt.task.run( 'connect' );
+	}
+
 	grunt.registerTask( 'i18n', [ 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'readme', [ 'wp_readme_to_markdown' ] );
-	grunt.registerTask( 'prerelease', [ 'i18n', 'readme' ] );
+	grunt.registerTask( 'prerelease', [ 'qunit:recent', 'i18n', 'readme' ] );
 
 	grunt.util.linefeed = '\n';
-
 };

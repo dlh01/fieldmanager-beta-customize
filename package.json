@@ -1,6 +1,6 @@
 {
   "name": "fieldmanager-beta-customize",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "main": "Gruntfile.js",
   "contributors": [
     "David Herrera",
@@ -8,8 +8,11 @@
     "Alley Interactive"
   ],
   "devDependencies": {
-    "grunt": "~0.4.5",
+    "grunt": "~1.0.0",
+    "grunt-contrib-connect": "~1.0.0",
+    "grunt-contrib-qunit": "~1.3.0",
     "grunt-wp-i18n": "~0.5.0",
-    "grunt-wp-readme-to-markdown": "~2.0.0"
+    "grunt-wp-readme-to-markdown": "~2.0.0",
+    "qunitjs": "^2.1.1"
   }
 }
