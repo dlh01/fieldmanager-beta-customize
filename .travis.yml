@@ -7,6 +7,7 @@ notifications:
 
 matrix:
   # - Lint PHP once per PHP version.
+  #
   # - Run `qunit:recent` once. The `recent` task handles running tests against
   #   different versions of WordPress. If we switch to WP_VERSION=x.y.z we could
   #   instead run `qunit:specific --wp=$WP_VERSION` so that control over which
