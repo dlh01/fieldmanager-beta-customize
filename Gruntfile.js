@@ -43,7 +43,7 @@ module.exports = function( grunt ) {
 		},
 
 		qunit: {
-			latest: {
+			trunk: {
 				options: {
 					urls: ['http://localhost:8000/tests/js/index.html']
 				}
