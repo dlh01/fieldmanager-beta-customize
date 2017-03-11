@@ -13,17 +13,18 @@ matrix:
     - php: 5.6
       env: WP_VERSION=latest PHP_LINT=1
 
+    # If we end up using WP_VERSION=x.y.z we could call `qunit:specific --wp=$WP_VERSION`.
     - php: 7.0
-      env: WP_VERSION=trunk PHP_LINT=1 QUNIT=1
+      env: WP_VERSION=trunk PHP_LINT=1 QUNIT_RECENT=1
     - php: 7.0
-      env: WP_VERSION=latest QUNIT=1
+      env: WP_VERSION=latest
 
     - php: 7.1
       env: WP_VERSION=latest PHP_LINT=1
 
 before_script:
   - |
-    if [[ "$QUNIT" == "1" ]]; then
+    if [[ "$QUNIT_RECENT" == "1" ]]; then
       npm install
     fi
 
@@ -34,6 +35,6 @@ script:
     fi
 
   - |
-    if [[ "$QUNIT" == "1" ]]; then
-      grunt qunit:specific --wp=$WP_VERSION
+    if [[ "$QUNIT_RECENT" == "1" ]]; then
+      grunt qunit:recent
     fi
