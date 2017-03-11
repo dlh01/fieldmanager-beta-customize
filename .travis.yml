@@ -15,9 +15,9 @@ matrix:
 
     # If we end up using WP_VERSION=x.y.z we could call `qunit:specific --wp=$WP_VERSION`.
     - php: 7.0
-      env: WP_VERSION=trunk PHP_LINT=1
+      env: WP_VERSION=trunk QUNIT_RECENT=1
     - php: 7.0
-      env: WP_VERSION=latest QUNIT_RECENT=1
+      env: WP_VERSION=latest PHP_LINT=1
 
     - php: 7.1
       env: WP_VERSION=latest PHP_LINT=1
