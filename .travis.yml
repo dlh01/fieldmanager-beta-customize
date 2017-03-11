@@ -8,10 +8,6 @@ git:
 notifications:
   email: false
 
-branches:
-  only:
-    - master
-
 matrix:
   # - Lint PHP once per PHP version.
   #
