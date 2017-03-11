@@ -19,6 +19,7 @@ matrix:
 
     - php: 7.0
       env: WP_VERSION=trunk PHP_LINT=1 QUNIT=1
+    - php: 7.0
       env: WP_VERSION=latest QUNIT=1
 
     - php: 7.1
