@@ -2,7 +2,7 @@
 Contributors: dlh, alleyinteractive
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 0.2.1
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,9 +36,16 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 == Changelog ==
 
 = Unreleased =
-* Support `Fieldmanager_RichTextArea` natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
 * Add a demo of a field with selective-refresh support.
-* Move remaining scripts that overrode Fieldmanager core assets into separate files.
+
+= 0.3.1 =
+* Fixed: Track the changes to instances of repeatable RichTextAreas and Colorpickers added after loading the Customizer.
+
+= 0.3.0 =
+* Changed: `Fieldmanager_RichTextArea` is now supported natively; using `Fieldmanager_Beta_Customize_RichTextArea` is no longer required.
+* Changed: Move remaining scripts that overrode Fieldmanager core assets into separate files.
+* Fixed: Fix invisible TinyMCE popups.
+* Deprecated: `Fieldmanager_Beta_Customize_RichTextArea`, per above.
 
 = 0.2.1 =
 * Fix JavaScript errors.

@@ -3,11 +3,11 @@
  * Plugin Name:     Fieldmanager Beta: Customize
  * Plugin URI:      https://www.github.com/dlh01/fieldmanager-beta-customize-context
  * Description:     Add Fieldmanager fields to the Customizer.
- * Author:          David Herrera, Alley Interactive
+ * Author:          David Herrera, James Burke, Alley Interactive
  * Author URI:      https://www.alleyinteractive.com
  * Text Domain:     fieldmanager-beta-customizer
  * Domain Path:     /languages
- * Version:         0.2.1
+ * Version:         0.3.1
  *
  * @package         Fieldmanager_Beta_Customize
  */
@@ -25,7 +25,7 @@ define( 'FM_BETA_CUSTOMIZE_URL', plugin_dir_url( __FILE__ ) );
 /**
  * Plugin version.
  */
-define( 'FM_BETA_CUSTOMIZE_VERSION', '0.2.1' );
+define( 'FM_BETA_CUSTOMIZE_VERSION', '0.3.1' );
 
 /**
  * Calculate a Fieldmanager context for the Customizer.
@@ -57,29 +57,6 @@ add_action( 'fm_beta_customize', function () {
 	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/demo/class-fieldmanager-beta-customize-demo.php' );
 	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/field/class-fieldmanager-beta-customize-richtextarea.php' );
 }, 0 );
-
-/**
- * Override the path to some Fieldmanager scripts to use updated versions from this plugin.
- *
- * @param array Arrays of script arguments. @see Fieldmanager_Util_Assets::add_script().
- */
-add_filter( 'fm_enqueue_scripts', function ( $scripts ) {
-	return array_map(
-		function ( $script ) {
-			switch ( $script['handle'] ) {
-				case 'fm_colorpicker' :
-				case 'fieldmanager_script' :
-				case 'fm_richtext' :
-					$script['ver']  = FM_BETA_CUSTOMIZE_VERSION;
-					$script['path'] = str_replace( fieldmanager_get_baseurl(), FM_BETA_CUSTOMIZE_URL, $script['path'] );
-				break;
-			}
-
-			return $script;
-		},
-		$scripts
-	);
-} );
 
 /**
  * Enqueue assets managed by Fieldmanager_Util_Assets in the Customizer.

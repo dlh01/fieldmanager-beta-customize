@@ -1,15 +1,15 @@
-# Copyright (C) 2016 David Herrera, Alley Interactive
+# Copyright (C) 2017 David Herrera, James Burke, Alley Interactive
 # This file is distributed under the same license as the Fieldmanager Beta: Customize package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Fieldmanager Beta: Customize 0.1.0\n"
+"Project-Id-Version: Fieldmanager Beta: Customize 0.3.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/fieldmanager-beta-customize\n"
-"POT-Creation-Date: 2016-10-12 02:04:05+00:00\n"
+"POT-Creation-Date: 2017-01-22 00:22:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
@@ -70,7 +70,7 @@ msgid "Add Fieldmanager fields to the Customizer."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "David Herrera, Alley Interactive"
+msgid "David Herrera, James Burke, Alley Interactive"
 msgstr ""
 
 #. Author URI of the plugin/theme
