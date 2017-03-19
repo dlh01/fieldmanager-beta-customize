@@ -36,7 +36,7 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 == Changelog ==
 
 = Unreleased =
-* Add a demo of a field with selective-refresh support.
+* Added: Demo a field with selective-refresh support.
 
 = 0.3.1 =
 * Fixed: Track the changes to instances of repeatable RichTextAreas and Colorpickers added after loading the Customizer.
