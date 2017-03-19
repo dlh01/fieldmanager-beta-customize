@@ -28,6 +28,16 @@ define( 'FM_BETA_CUSTOMIZE_URL', plugin_dir_url( __FILE__ ) );
 define( 'FM_BETA_CUSTOMIZE_VERSION', '0.3.1' );
 
 /**
+ * Load plugin class files.
+ */
+function fm_beta_customize_load_plugin_classes() {
+	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/context/class-fieldmanager-beta-context-customize.php' );
+	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/customize/class-fieldmanager-beta-customize-control.php' );
+	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/customize/class-fieldmanager-beta-customize-setting.php' );
+	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/field/class-fieldmanager-beta-customize-richtextarea.php' );
+}
+
+/**
  * Calculate a Fieldmanager context for the Customizer.
  *
  * @param array $calculated_context Array of context and 'type' information.
@@ -50,13 +60,7 @@ add_filter( 'fm_calculated_context', function ( $calculated_context ) {
  * We aren't registering an autoloader because if Fieldmanager core's autoloader
  * is registered first, and it doesn't find a file, it throws an exception.
  */
-add_action( 'fm_beta_customize', function () {
-	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/context/class-fieldmanager-beta-context-customize.php' );
-	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/customize/class-fieldmanager-beta-customize-control.php' );
-	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/customize/class-fieldmanager-beta-customize-setting.php' );
-	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/demo/class-fieldmanager-beta-customize-demo.php' );
-	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/field/class-fieldmanager-beta-customize-richtextarea.php' );
-}, 0 );
+add_action( 'fm_beta_customize', 'fm_beta_customize_load_plugin_classes', 0 );
 
 /**
  * Enqueue assets managed by Fieldmanager_Util_Assets in the Customizer.
@@ -130,5 +134,6 @@ function fm_beta_customize_add_to_customizer( $args = array(), $fm ) {
  * Instantiate the bundled context demos.
  */
 function fm_beta_customize_demo() {
+	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/demo/class-fieldmanager-beta-customize-demo.php' );
 	Fieldmanager_Beta_Customize_Demo::instance();
 }
