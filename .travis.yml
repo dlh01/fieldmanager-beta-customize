@@ -34,6 +34,7 @@ matrix:
 
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - export WP_CORE_DIR=/tmp/wordpress
 
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
