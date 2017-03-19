@@ -5,6 +5,8 @@
  * @package Fieldmanager_Beta_Customize
  */
 
+global $wp_tests_options;
+
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 if ( ! $_tests_dir ) {
 	$_tests_dir = '/tmp/wordpress-tests-lib';
@@ -26,11 +28,9 @@ tests_add_filter( 'muplugins_loaded', function () {
  * Install in $WP_TESTS_DIR/WP_PLUGIN_DIR. Loading these as "normal" plugins
  * helps keep a consistent test infrastructure in all environments.
  */
-tests_add_filter( 'pre_option_active_plugins', function ( $value ) {
-	return array(
-		'wordpress-fieldmanager/fieldmanager.php',
-	);
-} );
+$wp_tests_options['active_plugins'] = array(
+	'wordpress-fieldmanager/fieldmanager.php',
+);
 
 /**
  * Load our classes and the core classes we use or extend.
