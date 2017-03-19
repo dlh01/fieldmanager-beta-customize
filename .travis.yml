@@ -11,6 +11,8 @@ notifications:
 matrix:
   # - Lint PHP once per PHP version.
   #
+  # - Run `phpunit` for each version of PHP and WordPress in single- and multisite.
+  #
   # - Run `qunit:recent` once. The `recent` task handles running tests against
   #   different versions of WordPress. If we switch to WP_VERSION=x.y.z we could
   #   instead run `qunit:specific --wp=$WP_VERSION` so that control over which
@@ -31,6 +33,17 @@ matrix:
       env: WP_VERSION=latest PHP_LINT=1
 
 before_script:
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+      composer global require "phpunit/phpunit=5.7.*"
+    else
+      composer global require "phpunit/phpunit=4.8.*"
+    fi
+
+  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+
   - |
     if [[ "$QUNIT_RECENT" == "1" ]]; then
       npm install
@@ -46,3 +59,6 @@ script:
     if [[ "$QUNIT_RECENT" == "1" ]]; then
       grunt qunit:recent
     fi
+
+  - export WP_MULTISITE=0 && phpunit
+  - export WP_MULTISITE=1 && phpunit
