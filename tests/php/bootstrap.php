@@ -14,11 +14,22 @@ if ( ! $_tests_dir ) {
 require_once( $_tests_dir . '/includes/functions.php' );
 
 /**
- * Load our plugin and plugins assumed to be installed alongside it.
+ * Load our plugin.
  */
 tests_add_filter( 'muplugins_loaded', function () {
-	require_once( dirname( dirname( __FILE__ ) ) . '/../../wordpress-fieldmanager/fieldmanager.php' );
 	require_once( dirname( dirname( __FILE__ ) ) . '/../fieldmanager-beta-customize.php' );
+} );
+
+/**
+ * Set active plugins.
+ *
+ * Install in $WP_TESTS_DIR/WP_PLUGIN_DIR. Loading these as "normal" plugins
+ * helps keep a consistent test infrastructure in all environments.
+ */
+tests_add_filter( 'pre_option_active_plugins', function ( $value ) {
+	return array(
+		'wordpress-fieldmanager/fieldmanager.php',
+	);
 } );
 
 /**
