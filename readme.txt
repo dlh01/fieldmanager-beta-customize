@@ -35,6 +35,9 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Changelog ==
 
+= Unreleased =
+* Added: PHP and JavaScript tests.
+
 = 0.3.1 =
 * Fixed: Track the changes to instances of repeatable RichTextAreas and Colorpickers added after loading the Customizer.
 
