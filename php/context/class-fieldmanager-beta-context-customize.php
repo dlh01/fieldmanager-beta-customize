@@ -13,8 +13,7 @@ class Fieldmanager_Beta_Context_Customize extends Fieldmanager_Context {
 	 * Arguments to construct Customizer objects.
 	 *
 	 * @var array $args {
-	 *     @type array|bool $section_args Arguments for constructing a {@see WP_Customize_Section},
-	 *           or false to not create one for this context.
+	 *     @type array $section_args Arguments for constructing a {@see WP_Customize_Section}.
 	 *     @type array $setting_args Arguments for constructing a {@see Fieldmanager_Beta_Customize_Setting}.
 	 *     @type array $control_args Arguments for constructing a {@see Fieldmanager_Beta_Customize_Control}.
 	 * }
@@ -29,7 +28,7 @@ class Fieldmanager_Beta_Context_Customize extends Fieldmanager_Context {
 	 */
 	public function __construct( $args, $fm ) {
 		$this->args = wp_parse_args( $args, array(
-			'section_args' => false,
+			'section_args' => array(),
 			'setting_args' => array(),
 			'control_args' => array(),
 		) );
@@ -191,7 +190,7 @@ class Fieldmanager_Beta_Context_Customize extends Fieldmanager_Context {
 	 * @return WP_Customize_Section|void     Section object, where supported, if created.
 	 */
 	protected function register_section( $manager ) {
-		if ( false === $this->args['section_args'] ) {
+		if ( ! $this->args['section_args'] ) {
 			return;
 		}
 
