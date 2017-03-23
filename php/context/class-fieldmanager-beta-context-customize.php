@@ -186,11 +186,13 @@ class Fieldmanager_Beta_Context_Customize extends Fieldmanager_Context {
 	/**
 	 * Add a Customizer section for this field.
 	 *
+	 * @since 0.4.0 Does not create a section when the context's $args['section_args'] is an
+	 *              empty array. In practice, a Customizer section requires at least a title.
+	 *
 	 * @param  WP_Customize_Manager $manager WP_Customize_Manager instance.
 	 * @return WP_Customize_Section|void     Section object, where supported, if created.
 	 */
 	protected function register_section( $manager ) {
-		// In practice, a Customizer section requires at least a title.
 		if ( ! $this->args['section_args'] ) {
 			return;
 		}

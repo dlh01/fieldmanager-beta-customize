@@ -29,6 +29,8 @@ define( 'FM_BETA_CUSTOMIZE_VERSION', '0.4.0' );
 
 /**
  * Load plugin class files.
+ *
+ * @since 0.4.0
  */
 function fm_beta_customize_load_plugin_classes() {
 	require_once( FM_BETA_CUSTOMIZE_PATH . 'php/context/class-fieldmanager-beta-context-customize.php' );
