@@ -26,14 +26,15 @@ class Test_Fieldmanager_Beta_Context_Customize extends Fieldmanager_Beta_Customi
 	// Test that no section is created if no section args are passed.
 	function test_no_section() {
 		new Fieldmanager_Beta_Context_Customize( array(), $this->field );
+		$this->register();
 		$this->assertEmpty( $this->manager->get_section( $this->field->name ) );
 	}
 
-	// Test that a section is created even with empty constructor args.
+	// Test that no section is created even with empty constructor args.
 	function test_bare_section() {
 		new Fieldmanager_Beta_Context_Customize( array( 'section_args' => array() ), $this->field );
 		$this->register();
-		$this->assertInstanceOf( 'WP_Customize_Section', $this->manager->get_section( $this->field->name ) );
+		$this->assertEmpty( $this->manager->get_section( $this->field->name ) );
 	}
 
 	// Test that a section is created with a title string.
