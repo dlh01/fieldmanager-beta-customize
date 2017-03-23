@@ -2,7 +2,7 @@
 Contributors: dlh, jamesburke, alleyinteractive
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 0.3.1
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 == Changelog ==
 
-= Unreleased =
+= 0.4.0 =
 * Added: PHP and JavaScript tests.
 * Added: Demo a field with selective-refresh support.
 * Changed: Use better TinyMCE events for tracking `Fieldmanager_RichTextArea` changes.

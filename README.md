@@ -2,7 +2,7 @@
 **Contributors:** [dlh](https://profiles.wordpress.org/dlh), [jamesburke](https://profiles.wordpress.org/jamesburke), [alleyinteractive](https://profiles.wordpress.org/alleyinteractive)  
 **Requires at least:** 4.4  
 **Tested up to:** 4.7  
-**Stable tag:** 0.3.1  
+**Stable tag:** 0.4.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -40,6 +40,12 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 
 
 ## Changelog ##
+
+### 0.4.0 ###
+* Added: PHP and JavaScript tests.
+* Added: Demo a field with selective-refresh support.
+* Changed: Use better TinyMCE events for tracking `Fieldmanager_RichTextArea` changes.
+* Fixed: Fix a case where invisible Customizer sections could be created.
 
 ### 0.3.1 ###
 * Fixed: Track the changes to instances of repeatable RichTextAreas and Colorpickers added after loading the Customizer.
