@@ -70,12 +70,12 @@
 
 	// Respond to RichTextArea changes.
 	$( document ).on( 'tinymce-editor-init', function ( event, editor ) {
-		var editor_element = document.getElementById( editor.id );
+		var editorElement = document.getElementById( editor.id );
 
-		if ( editor_element && editor_element.classList.contains( 'fm-richtext' ) ) {
-			editor.on( 'keyup AddUndo SetContent', function () {
+		if ( editorElement && editorElement.classList.contains( 'fm-richtext' ) ) {
+			editor.on( 'input change keyup', function () {
 				editor.save();
-				fm.beta.customize.setControlsContainingElement( editor_element );
+				fm.beta.customize.setControlsContainingElement( editorElement );
 			});
 		}
 	});

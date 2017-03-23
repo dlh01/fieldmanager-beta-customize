@@ -49,6 +49,14 @@
 		/**
 		 * Set a Fieldmanager setting to its control's form values.
 		 *
+		 * Updates to fields are generally not debounced or throttled because
+		 * these create FM-specific deviations to how users experience the
+		 * Customizer and add maintenance requirements for the plugin.
+		 *
+		 * Without debouncing or throttling, changes to settings using the
+		 * `postMessage` transport are faster. The Customizer's refresh
+		 * framework also debounces natively.
+		 *
 		 * @param {Object} control Customizer Control object.
 		 * @return {Object} The updated Control.
 		 */
