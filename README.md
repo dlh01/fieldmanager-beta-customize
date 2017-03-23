@@ -12,7 +12,7 @@ A Fieldmanager Beta plugin for the Customize Context.
 
 This is a proposed Customize context for Fieldmanager. You can install the plugin alongside a stable Fieldmanager release to help test and refine the context.
 
-The official Pull Request for this context, plus tests, is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
+The official Pull Request for this context is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
 
 ## Installation ##
 
