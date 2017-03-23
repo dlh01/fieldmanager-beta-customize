@@ -36,6 +36,7 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 == Changelog ==
 
 = Unreleased =
+* Added: Demo a field with selective-refresh support.
 * Changed: Use better TinyMCE events for tracking `Fieldmanager_RichTextArea` changes.
 
 = 0.3.1 =

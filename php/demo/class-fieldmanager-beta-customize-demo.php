@@ -33,19 +33,48 @@ class Fieldmanager_Beta_Customize_Demo {
 	 * Set up.
 	 */
 	public function setup() {
+		add_action( 'customize_register', array( $this, 'add_partial' ) );
 		add_action( 'fm_beta_customize', array( $this, 'customizer_init' ), 1000 );
+	}
+
+	/**
+	 * Register a demo selective-refresh partial.
+	 */
+	public function add_partial( $wp_customize ) {
+		if ( empty( $wp_customize->selective_refresh ) ) {
+			return;
+		}
+
+		$wp_customize->selective_refresh->add_partial( 'basic_partial', array(
+			'selector' => '#fm-demo-customizer-basic-partial',
+			'settings' => array( 'basic_partial' ),
+			'render_callback' => array( $this, 'get_basic_partial' ),
+		) );
+	}
+
+	/**
+	 * Render callback for basic_partial.
+	 */
+	public function get_basic_partial() {
+		return get_option( 'basic_partial' );
 	}
 
 	/**
 	 * Initialize demos.
 	 */
 	public function customizer_init() {
-		$fm = new Fieldmanager_Textfield( array( 'name' => 'basic_text' ) );
+		$fm = new Fieldmanager_Textfield( 'Text Field', array( 'name' => 'basic_text' ) );
 		fm_beta_customize_add_to_customizer( array(
 			'section_args' => array(
 				'priority' => 10,
-				'title' => 'Fieldmanager Text Field',
+				'title' => 'Fieldmanager Text Fields',
 			),
+		), $fm );
+
+		$fm = new Fieldmanager_TextField( 'Text Field with Selective Refresh', array( 'name' => 'basic_partial' ) );
+		fm_beta_customize_add_to_customizer( array(
+			'control_args' => array( 'section' => 'basic_text' ),
+			'setting_args' => array( 'transport' => 'postMessage' ),
 		), $fm );
 
 		$fm = new Fieldmanager_Group( array(
@@ -185,6 +214,11 @@ class Fieldmanager_Beta_Customize_Demo {
 				<p>The values you see below are controlled by "Fieldmanager Text Field" and "Fieldmanager Group" sections in the Customizer. Try changing them to see the results.</p>
 				<ul>
 					<li>Text Field (using "refresh" transport): <?php echo esc_html( get_option( 'basic_text' ) ); ?></li>
+					<li>Text Field (using selective refresh):
+						<ul>
+							<li id="fm-demo-customizer-basic-partial"><?php echo esc_html( $this->get_basic_partial() ); ?></li>
+						</ul>
+					</li>
 					<li>Group (using "postMessage" transport):
 						<ul>
 							<li>Text Field:                <span id="fm-postmessage-text"><?php echo ( isset( $option_fields['text'] ) ) ? esc_html( $option_fields['text'] ) : '' ?></span></li>
