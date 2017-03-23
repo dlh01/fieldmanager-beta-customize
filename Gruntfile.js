@@ -81,7 +81,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
 
-	if ( grunt.cli.tasks.join( '' ).toLowerCase().indexOf( 'qunit' ) !== -1 ) {
+	if ( /(qunit|prerelease)/.test( grunt.cli.tasks.join( '' ).toLowerCase() ) ) {
 		grunt.task.run( 'connect' );
 	}
 
