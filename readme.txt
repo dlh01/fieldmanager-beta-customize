@@ -1,6 +1,6 @@
 === Fieldmanager Beta: Customize ===
 Contributors: dlh, jamesburke, alleyinteractive
-Requires at least: 4.4
+Requires at least: 4.5
 Tested up to: 4.7
 Stable tag: 0.4.0
 License: GPLv2 or later
@@ -39,6 +39,7 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 * Added: PHP and JavaScript tests.
 * Added: Demo a field with selective-refresh support.
 * Changed: Use better TinyMCE events for tracking `Fieldmanager_RichTextArea` changes.
+* Changed: Require at least WordPress 4.5.
 * Fixed: Fix a case where invisible Customizer sections could be created.
 
 = 0.3.1 =
