@@ -1,8 +1,8 @@
 === Fieldmanager Beta: Customize ===
 Contributors: dlh, jamesburke, alleyinteractive
-Requires at least: 4.4
+Requires at least: 4.5
 Tested up to: 4.7
-Stable tag: 0.3.1
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ A Fieldmanager Beta plugin for the Customize Context.
 
 This is a proposed Customize context for Fieldmanager. You can install the plugin alongside a stable Fieldmanager release to help test and refine the context.
 
-The official Pull Request for this context, plus tests, is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
+The official Pull Request for this context is [on GitHub](https://github.com/alleyinteractive/wordpress-fieldmanager/pull/399).
 
 == Installation ==
 
@@ -34,6 +34,13 @@ For more code examples, browse `php/demos/class-fieldmanager-beta-customize-demo
 3. Detail from the demos bundled with this plugin.
 
 == Changelog ==
+
+= 0.4.0 =
+* Added: PHP and JavaScript tests.
+* Added: Demo a field with selective-refresh support.
+* Changed: Use better TinyMCE events for tracking `Fieldmanager_RichTextArea` changes.
+* Changed: Require at least WordPress 4.5.
+* Fixed: Fix a case where invisible Customizer sections could be created.
 
 = 0.3.1 =
 * Fixed: Track the changes to instances of repeatable RichTextAreas and Colorpickers added after loading the Customizer.
