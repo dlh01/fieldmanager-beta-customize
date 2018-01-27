@@ -1,0 +1,20 @@
+{
+  "name": "dlh01/fieldmanager-beta-customize",
+  "description": "Add Fieldmanager fields to the Customizer",
+  "version": "0.4.0",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "David Herrera",
+      "email": "david@alleyinteractive.com"
+    }
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "wp-coding-standards/wpcs": "dev-master"
+  },
+  "scripts": {
+    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs",
+    "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs"
+  }
+}
