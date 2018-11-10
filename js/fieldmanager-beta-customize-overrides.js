@@ -66,6 +66,26 @@
 				}
 			} );
 		})();
+
+		// Collapse collapsed fields.
+		_.each( section.controls(), function ( control ) {
+			var collapsedWrappers = control.container.find( '.fm-collapsed' );
+
+			collapsedWrappers.each( function ( index, element ) {
+				var $element = $( element );
+
+				// The `.fm-collapsed` class is never removed, so we need to mark
+				// already-collapsed fields ourselves to avoid re-collapsing them.
+				var alreadyHandled = 'fieldmanager-beta-collapsed';
+
+				if ( $element.hasClass( alreadyHandled ) ) {
+					return;
+				}
+
+				$element.find( '> .fm-group:not(.fmjs-proto) > .fm-group-inner' ).hide();
+				$element.addClass( alreadyHandled );
+			});
+		});
 	});
 
 	// Respond to RichTextArea changes.
